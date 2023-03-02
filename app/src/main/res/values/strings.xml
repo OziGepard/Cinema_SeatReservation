@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">SeatReservation</string>
+    <string name="home">Home</string>
+    <string name="reserved">Reserved</string>
+    <string name="favorite">Favorite</string>
+    <string name="name">Imię</string>
+    <string name="lastname">Nazwisko</string>
+    <string name="time_select">Podaj godzinę</string>
+    <string name="email">E-mail</string>
+    <string name="time">Godzina</string>
+    <string name="reservation">Rezerwuj</string>
+</resources>

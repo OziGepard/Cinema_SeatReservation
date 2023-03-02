@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "440242754428",
+    "project_id": "seatreservation-d2d7a",
+    "storage_bucket": "seatreservation-d2d7a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:440242754428:android:9998d6c27e79cc1d030af9",
+        "android_client_info": {
+          "package_name": "com.example.seatreservation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "440242754428-h94me2ms94rj2qjnnigo40dg1bvoie0t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.seatreservation",
+            "certificate_hash": "2b897878d5244b8f0c3d9b10abc0116b98762ed2"
+          }
+        },
+        {
+          "client_id": "440242754428-pm3dv6icg448ntj1qujmfr2qai4skn3s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCxujz88qqzrGl96COf6zIKn1SXBhoD9I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "440242754428-pm3dv6icg448ntj1qujmfr2qai4skn3s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

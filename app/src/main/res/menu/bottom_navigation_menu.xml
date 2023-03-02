@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/moviesListFragment"
+        android:title="@string/home"
+        android:icon="@drawable/baseline_home_24"/>
+    <item
+        android:id="@+id/reservedMoviesFragment"
+        android:title="@string/reserved"
+        android:icon="@drawable/baseline_calendar_month_24"/>
+    <item
+        android:id="@+id/favoriteMoviesFragment"
+        android:title="@string/favorite"
+        android:icon="@drawable/baseline_favorite_border_24"/>
+</menu>

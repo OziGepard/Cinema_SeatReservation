@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/reservation_navigation"
+    app:startDestination="@id/moviesListFragment">
+
+    <fragment
+        android:id="@+id/moviesListFragment"
+        android:name="com.example.seatreservation.ui.fragments.MoviesListFragment"
+        android:label="MoviesListFragment" >
+        <action
+            android:id="@+id/action_moviesListFragment_to_movieSelectedFragment"
+            app:destination="@id/movieSelectedFragment"
+            app:enterAnim="@anim/from_right_to_left"
+            app:exitAnim="@anim/from_right_to_left_faster"
+            app:popEnterAnim="@anim/from_left_to_right_pop"
+            app:popExitAnim="@anim/from_left_to_right_pop_faster"/>
+    </fragment>
+    <fragment
+        android:id="@+id/movieSelectedFragment"
+        android:name="com.example.seatreservation.ui.fragments.MovieSelectedFragment"
+        android:label="MovieSelectedFragment" >
+        <argument
+            android:name="title"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/reservedMovieDetailFragment"
+        android:name="com.example.seatreservation.ui.fragments.ReservedMovieDetailFragment"
+        android:label="ReservedMovieDetailFragment" />
+    <fragment
+        android:id="@+id/reservedMoviesFragment"
+        android:name="com.example.seatreservation.ui.fragments.ReservedMoviesFragment"
+        android:label="ReservedMoviesFragment" >
+        <action
+            android:id="@+id/action_reservedMoviesFragment_to_reservedMovieDetailFragment"
+            app:destination="@id/reservedMovieDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteMoviesFragment3"
+        android:name="com.example.seatreservation.ui.fragments.FavoriteMoviesFragment"
+        android:label="FavoriteMoviesFragment" />
+</navigation>
