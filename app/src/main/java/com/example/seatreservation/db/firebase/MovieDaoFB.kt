@@ -1,7 +1,5 @@
 package com.example.seatreservation.db.firebase
 
-import android.util.Log
-import com.example.seatreservation.models.Movie
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase

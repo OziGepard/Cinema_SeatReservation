@@ -37,7 +37,7 @@
             app:destination="@id/reservedMovieDetailFragment" />
     </fragment>
     <fragment
-        android:id="@+id/favoriteMoviesFragment3"
+        android:id="@+id/favoriteMoviesFragment"
         android:name="com.example.seatreservation.ui.fragments.FavoriteMoviesFragment"
         android:label="FavoriteMoviesFragment" />
 </navigation>
