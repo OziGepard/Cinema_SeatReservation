@@ -44,6 +44,7 @@ class CinemaViewModel @Inject constructor(
 init {
     viewModelScope.launch {
         getMovies()
+        // JAKIS KOMENTARZ
 
     }
 }
