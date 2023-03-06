@@ -1,24 +1,28 @@
 ﻿# Cinema Seat Reservation
 
-Aplikacja stworzona na systemy Android, służąca do rezerwacji miejsc w kinie, oparta o architekturę MVVM, posiadająca dodatkowe funkcje takie jak:
-- Dodawania filmów do ulubionych
-- Rezerwacja biletu na konkretną godzinę
-- Wyświetlanie wszystkich dostępnych w bazie Firebase filmów znajdujących się w repertuarze
+Application developed for Android systems, used to book seats in the cinema, based on MVVM architecture, with additional features such as:
 
-Funkcjonalności planowane do dodania:
-- Sprawdzanie informacji na temat zarezerwowanych biletów
-- Możliwość odrezerwowania biletu
-- Zgłaszanie reklamacji dotyczącej zarezerwowanego biletu
-- Generowanie kodu QR podczas rezerwacji biletu
-- Powiadomienie e-mail o dokonaniu rezerwacji
-- Powiadomienie na telefon o zbliżającym się seansie oraz aktualnych promocjach
+- Adding movies to favorites
+- Booking a ticket for a specific time
+- Displaying all available movies in the Firebase database that are in the repertoire
 
-Wykorzystane dotychczas technologie:
+Functions planned to be added:
+
+- Checking information on booked tickets
+- Possibility of unreserving a ticket
+- Making a complaint about a reserved ticket
+- Generation of QR code during ticket booking
+- Email notification about booking
+- Notification to phone about upcoming screening and current promotions
+
+Technologies used so far:
+
 - Dagger Hilt
 - Coroutines
 - Firebase
 - Room
 
-Technologie planowo do wykorzystania w przyszłości:
+Technologies planned for future use:
+
 - Retrofit
 - JUnit
