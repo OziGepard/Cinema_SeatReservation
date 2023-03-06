@@ -1,4 +1,4 @@
-﻿# Cinema_SeatReservation
+﻿# Cinema Seat Reservation
 
 Aplikacja stworzona na systemy Android, służąca do rezerwacji miejsc w kinie, oparta o architekturę MVVM, posiadająca dodatkowe funkcje takie jak:
 - Dodawania filmów do ulubionych
