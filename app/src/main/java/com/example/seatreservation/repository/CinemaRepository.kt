@@ -5,8 +5,9 @@ import com.example.seatreservation.db.CinemaRoomDatabase
 import com.example.seatreservation.db.firebase.callbacks.ReservationsSnapshotCallback
 import com.example.seatreservation.models.Movie
 import com.example.seatreservation.models.Reservation
+import javax.inject.Inject
 
-class CinemaRepository(
+class CinemaRepository @Inject constructor(
     private val dbRoom: CinemaRoomDatabase,
     private val dbFB: CinemaFirebaseDatabase
 ) {

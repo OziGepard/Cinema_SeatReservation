@@ -1,20 +1,13 @@
 package com.example.seatreservation.db
 
-import android.content.Context
 import com.example.seatreservation.db.firebase.MovieDaoFB
 import com.example.seatreservation.db.firebase.ReservationDaoFB
+import com.google.firebase.firestore.FirebaseFirestore
 
-class CinemaFirebaseDatabase {
-    val getMovieDaoFB = MovieDaoFB()
+class CinemaFirebaseDatabase(
+    dbFBInstance: FirebaseFirestore
+) {
+    val getMovieDaoFB = MovieDaoFB(dbFBInstance)
 
-    val getReservationDaoFB = ReservationDaoFB()
-
-    companion object{
-        @Volatile private var instance : CinemaFirebaseDatabase? = null
-
-        fun getInstance() =
-            instance ?: synchronized(this){
-                instance ?: CinemaFirebaseDatabase().also { instance = it }
-            }
-    }
+    val getReservationDaoFB = ReservationDaoFB(dbFBInstance)
 }

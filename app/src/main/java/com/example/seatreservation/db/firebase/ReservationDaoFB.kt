@@ -2,13 +2,14 @@ package com.example.seatreservation.db.firebase
 
 import android.util.Log
 import com.example.seatreservation.db.firebase.callbacks.ReservationsSnapshotCallback
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ListenerRegistration
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import javax.inject.Inject
 
-class ReservationDaoFB {
+class ReservationDaoFB @Inject constructor(private val db: FirebaseFirestore) {
 
-    private val db = Firebase.firestore
     private val TAG = "ReservationDaoFB"
 
     private lateinit var subscription: ListenerRegistration

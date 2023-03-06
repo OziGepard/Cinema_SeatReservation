@@ -11,9 +11,12 @@ import com.example.seatreservation.models.Movie
 import com.example.seatreservation.models.Reservation
 import com.example.seatreservation.repository.CinemaRepository
 import com.google.firebase.firestore.QuerySnapshot
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class CinemaViewModel(
+@HiltViewModel
+class CinemaViewModel @Inject constructor(
     app: Application,
     private val cinemaRepository: CinemaRepository
 ) : AndroidViewModel(app) {

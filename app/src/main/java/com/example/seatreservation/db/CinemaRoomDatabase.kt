@@ -17,23 +17,5 @@ import com.example.seatreservation.models.Movie
 abstract class CinemaRoomDatabase: RoomDatabase() {
 
     abstract fun getFavoriteDaoRoom(): FavoriteDaoRoom
-
     abstract fun getReservationDaoRoom(): ReservationDaoRoom
-
-    companion object{
-        @Volatile
-        private var instance : CinemaRoomDatabase? = null
-
-        operator fun invoke(context: Context) =
-            instance ?: synchronized(this){
-                instance ?: createDatabase(context).also { instance = it }
-            }
-
-        private fun createDatabase(context: Context) =
-            Room.databaseBuilder(
-                context.applicationContext,
-                CinemaRoomDatabase::class.java,
-                "reservation_db.db"
-            ).build()
-    }
 }
