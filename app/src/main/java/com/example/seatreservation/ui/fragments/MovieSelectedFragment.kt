@@ -8,13 +8,15 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
 import com.example.seatreservation.R
 import com.example.seatreservation.databinding.FragmentMovieSelectedBinding
-import com.example.seatreservation.models.Reservation
 import com.example.seatreservation.ui.CinemaActivity
 import com.example.seatreservation.ui.CinemaViewModel
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.launch
 
 class MovieSelectedFragment: Fragment(R.layout.fragment_movie_selected) {
 
@@ -49,7 +51,29 @@ class MovieSelectedFragment: Fragment(R.layout.fragment_movie_selected) {
     }
 
     private fun initializeUI() {
+        var isFavorite = false
+
         binding.movieSelectedTitle.text = args.title
+
+        //-----Favorite button setImage-----
+
+        lifecycleScope.launch{
+            viewModel.isOnTheFavoriteList()
+        }
+
+        viewModel.isMovieFavorite.observe(viewLifecycleOwner) {status ->
+            isFavorite = if (status) {
+                binding.addToFavBtn.setImageResource(R.drawable.baseline_favorite_24)
+                true
+            } else {
+                binding.addToFavBtn.setImageResource(R.drawable.baseline_favorite_border_24)
+                false
+            }
+        }
+
+        //----------------------------------
+
+        //-----ArrayAdapter for spinner------
 
         val spinner = binding.timeSelectorSpinner
         ArrayAdapter.createFromResource(
@@ -60,6 +84,10 @@ class MovieSelectedFragment: Fragment(R.layout.fragment_movie_selected) {
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             spinner.adapter = adapter
         }
+
+        //---------------------------------------
+
+        //------Spinner Listener---------
 
         spinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
             override fun onItemSelected(parent: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
@@ -75,6 +103,9 @@ class MovieSelectedFragment: Fragment(R.layout.fragment_movie_selected) {
                 viewModel.getSelectedMovieReservations()
             }
         }
+        //------------------------------------
+
+        //-------Reservation Button-----------
 
         binding.movieSelectedReservationBtn.setOnClickListener {
             val name = binding.movieSelectedName.text.toString()
@@ -96,5 +127,25 @@ class MovieSelectedFragment: Fragment(R.layout.fragment_movie_selected) {
             viewModel.clearList()
 
         }
+        //-------------------------------------
+
+        //------Favorite Button----------
+
+        binding.addToFavBtn.setOnClickListener{
+            if(isFavorite)
+            {
+                //Log.d(TAG, "Movie Delete")
+                viewModel.deleteMovieFromFavorite()
+                binding.addToFavBtn.setImageResource(R.drawable.baseline_favorite_border_24)
+            }
+            else {
+                //Log.d(TAG, "Movie Add")
+                viewModel.addMovieToFavorite()
+                binding.addToFavBtn.setImageResource(R.drawable.baseline_favorite_24)
+            }
+            viewModel.setMovieFavoriteStatus(!isFavorite)
+        }
+
+        //-------------------------------
     }
 }
