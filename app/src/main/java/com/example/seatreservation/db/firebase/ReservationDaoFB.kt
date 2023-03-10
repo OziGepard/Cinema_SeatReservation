@@ -20,17 +20,15 @@ class ReservationDaoFB @Inject constructor(private val db: FirebaseFirestore) {
         subscription = db.collection("reservations")
             .document(title)
             .collection(time)
-            .addSnapshotListener{snapshot, e ->
+            .addSnapshotListener { snapshot, e ->
                 if (e != null) {
                     Log.w(TAG, "Listen failed.", e)
                     return@addSnapshotListener
                 }
 
                 if (snapshot != null) {
-                    for(document in snapshot.documents)
-                    {
-                        if (document.data?.isEmpty() == true)
-                        {
+                    for (document in snapshot.documents) {
+                        if (document.data?.isEmpty() == true) {
                             callback.onReservationSnapshotCallback(null)
                             return@addSnapshotListener
                         }

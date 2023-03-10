@@ -14,8 +14,6 @@ class CinemaRepository @Inject constructor(
 
     suspend fun getMovies() = dbFB.getMovieDaoFB.getMovies()
 
-    fun getFavorite() = dbRoom.getFavoriteDaoRoom().getFavorite()
-
     fun getSelectedMovieReservations(
         title: String,
         time: String,
@@ -29,5 +27,13 @@ class CinemaRepository @Inject constructor(
     suspend fun addReservationRoom(reservation: Reservation) =
         dbRoom.getReservationDaoRoom().addReservationRoom(reservation)
 
+    suspend fun addMovieToFavorite(movie: Movie) =
+        dbRoom.getFavoriteDaoRoom().addFavorite(movie)
+
+    suspend fun deleteMovieFromFavorite(movie: String) =
+        dbRoom.getFavoriteDaoRoom().deleteFavorite(movie)
+
     fun getReservation() = dbRoom.getReservationDaoRoom().getReservations()
+
+    fun getFavorite() = dbRoom.getFavoriteDaoRoom().getFavorite()
 }

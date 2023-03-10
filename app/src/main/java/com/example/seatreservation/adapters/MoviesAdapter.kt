@@ -33,6 +33,7 @@ class MoviesAdapter(val changeFragment: (String, Movie) -> Unit) : RecyclerView.
 
     override fun onBindViewHolder(holder: MoviesAdapter.MovieViewHolder, position: Int) {
         val title = moviesList[position].title
+        val price = moviesList[position].price
 
         holder.itemView.apply {
             val image = moviesList[position].image
@@ -42,7 +43,7 @@ class MoviesAdapter(val changeFragment: (String, Movie) -> Unit) : RecyclerView.
 
             this.findViewById<ImageView>(R.id.movie_image).setImageDrawable(drawable)
             this.findViewById<TextView>(R.id.movie_title).text = title
-            this.findViewById<TextView>(R.id.movie_price).text = "Cena: ${moviesList[position].price}"
+            this.findViewById<TextView>(R.id.movie_price).text = "Cena: $price"
 
         }
 
