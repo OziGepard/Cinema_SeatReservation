@@ -31,11 +31,8 @@ class CinemaViewModel @Inject constructor(
     private val _reservationsList: MutableLiveData<List<Int>> = MutableLiveData()   //Firebase
     val reservationsList: LiveData<List<Int>> = _reservationsList
 
-    private val _favoriteMoviesList: MutableLiveData<List<Movie>> = MutableLiveData()       //Room
-    val favoriteMoviesList: MutableLiveData<List<Movie>> = _favoriteMoviesList
-
-    private val _isMovieFavorite: MutableLiveData<Boolean> = MutableLiveData()
-    val isMovieFavorite: LiveData<Boolean> = _isMovieFavorite
+    private val _isMovieFavorite: MutableLiveData<Boolean?> = MutableLiveData()
+    val isMovieFavorite: LiveData<Boolean?> = _isMovieFavorite
 
     private var movieSelected: Movie? = null
 
@@ -49,19 +46,17 @@ class CinemaViewModel @Inject constructor(
 init {
     viewModelScope.launch {
         getMovies()
-        // JAKIS KOMENTARZ
-
     }
 }
 
     private suspend fun getMovies(){
         val documentSnapshotList = cinemaRepository.getMovies()
-        val tempList = mutableListOf<Movie>()
+        val tempListOfMovies = mutableListOf<Movie>()
         for(document in documentSnapshotList)
         {
-            tempList.add(document.toObject(Movie::class.java)!!)
+            tempListOfMovies.add(document.toObject(Movie::class.java)!!)
         }
-        _moviesList.postValue(tempList)
+        _moviesList.postValue(tempListOfMovies)
     }
 
     fun addReservationRoom(name: String, lastname: String, email: String)
@@ -78,11 +73,9 @@ init {
 
     fun getReservation() = cinemaRepository.getReservation()
 
+    fun getFavorite() = cinemaRepository.getFavorite()
 
-    fun getFavorite()
-    {
-        _favoriteMoviesList.postValue(cinemaRepository.getFavorite())
-    }
+    private fun getFavoriteList() = cinemaRepository.getFavoriteList()
 
     fun getSelectedMovieReservations()
     {
@@ -124,14 +117,12 @@ init {
     }
 
     suspend fun isOnTheFavoriteList() = withContext(Dispatchers.IO) {
-        val result = cinemaRepository
-            .getFavorite()
-            .any{
-                    movie ->
-                Log.d(TAG, movie.toString())
+        val result = getFavoriteList()
+            .any{ movie ->
+                //Log.d(TAG, "Movie from list: $movie")
                 movie.title == movieTitle
             }
-        Log.d(TAG, "Result: $result \nMovie Title: $movieTitle ")
+        //Log.d(TAG, "Result: $result \nMovie Title: $movieTitle ")
         _isMovieFavorite.postValue(result)
     }
 
@@ -156,6 +147,5 @@ init {
             }
         }
     }
-
 
 }

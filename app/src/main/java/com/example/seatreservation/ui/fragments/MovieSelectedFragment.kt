@@ -62,7 +62,7 @@ class MovieSelectedFragment: Fragment(R.layout.fragment_movie_selected) {
         }
 
         viewModel.isMovieFavorite.observe(viewLifecycleOwner) {status ->
-            isFavorite = if (status) {
+            isFavorite = if (status == true) {
                 binding.addToFavBtn.setImageResource(R.drawable.baseline_favorite_24)
                 true
             } else {
