@@ -49,8 +49,8 @@ class FavoriteMoviesFragment: Fragment(R.layout.fragment_favorite_movies) {
             setHasFixedSize(false)
             registerForContextMenu(this)
         }
-        viewModel.favoriteMoviesList.observe(this) {
-            mAdapter.updateList(viewModel.favoriteMoviesList.value!!)
+        viewModel.getFavorite().observe(this) {listOfFavorites ->
+            mAdapter.updateList(listOfFavorites)
         }
 
 

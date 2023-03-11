@@ -36,4 +36,6 @@ class CinemaRepository @Inject constructor(
     fun getReservation() = dbRoom.getReservationDaoRoom().getReservations()
 
     fun getFavorite() = dbRoom.getFavoriteDaoRoom().getFavorite()
+
+    fun getFavoriteList() = dbRoom.getFavoriteDaoRoom().getFavoriteList()
 }

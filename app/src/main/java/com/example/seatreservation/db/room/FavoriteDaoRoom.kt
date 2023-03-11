@@ -1,13 +1,17 @@
 package com.example.seatreservation.db.room
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.seatreservation.models.Movie
 
 @Dao
 interface FavoriteDaoRoom {
 
-    @Query("SELECT * from favorite_table")
-    fun getFavorite(): List<Movie>
+    @Query("SELECT * FROM favorite_table")
+    fun getFavorite(): LiveData<List<Movie>>
+
+    @Query("SELECT * FROM favorite_table")
+    fun getFavoriteList(): List<Movie>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addFavorite(movie: Movie)

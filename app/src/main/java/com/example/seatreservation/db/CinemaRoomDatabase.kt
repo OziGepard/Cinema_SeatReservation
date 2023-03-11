@@ -11,7 +11,8 @@ import com.example.seatreservation.models.Reservation
 import com.example.seatreservation.models.Movie
 @Database(
     entities = [Movie::class, Reservation::class],
-    version = 1
+    version = 1,
+    exportSchema = false
 )
 @TypeConverters(Converters::class)
 abstract class CinemaRoomDatabase: RoomDatabase() {
