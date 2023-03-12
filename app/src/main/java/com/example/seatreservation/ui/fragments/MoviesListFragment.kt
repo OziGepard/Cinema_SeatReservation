@@ -59,7 +59,7 @@ class MoviesListFragment : Fragment(R.layout.fragment_movies_list) {
     private fun changeFragment(title: String, movieSelected: Movie)
     {
         viewModel.setSelectedMovie(movieSelected)
-        val action = MoviesListFragmentDirections.actionMoviesListFragmentToMovieSelectedFragment(title)
+        val action = MoviesListFragmentDirections.actionMoviesListFragmentToMovieSelectedInfoFragment(title)
         findNavController().navigate(action)
     }
 }

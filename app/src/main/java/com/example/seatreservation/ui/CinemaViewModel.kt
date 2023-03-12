@@ -80,12 +80,12 @@ init {
     fun getSelectedMovieReservations()
     {
         viewModelScope.launch {
-            val tempList = mutableListOf<Int>()
             cinemaRepository.getSelectedMovieReservations(
                 title = movieTitle!!,
                 time = movieTime!!,
                 callback = object: ReservationsSnapshotCallback{
                     override fun onReservationSnapshotCallback(snapshot: QuerySnapshot?) {
+                        val tempList = mutableListOf<Int>()
                         if(snapshot == null)
                         {
                             _reservationsList.postValue(listOf())
@@ -94,11 +94,14 @@ init {
                         {
                             for(document in snapshot.documents)
                             {
+                                //Log.d(TAG, "onReservationSnapshotCallback: ${document.get("seat_number")}")
                                 tempList += document.get("seat_number") as List<Int>
                             }
                         }
 
+                        //Log.d(TAG, "onReservationSnapshotCallback: $tempList")
                         _reservationsList.postValue(tempList)
+
                         //Log.d(TAG, _reservationsList.value.toString())
                     }
                 })
