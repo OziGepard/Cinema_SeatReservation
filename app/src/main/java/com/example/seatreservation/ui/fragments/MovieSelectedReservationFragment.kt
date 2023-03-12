@@ -8,22 +8,19 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.navArgs
 import com.example.seatreservation.R
-import com.example.seatreservation.databinding.FragmentMovieSelectedBinding
+import com.example.seatreservation.databinding.FragmentMovieSelectedReservationBinding
 import com.example.seatreservation.ui.CinemaActivity
 import com.example.seatreservation.ui.CinemaViewModel
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 
-class MovieSelectedFragment: Fragment(R.layout.fragment_movie_selected) {
+class MovieSelectedReservationFragment: Fragment(R.layout.fragment_movie_selected_reservation) {
 
-    private var _binding: FragmentMovieSelectedBinding? = null
+    private var _binding: FragmentMovieSelectedReservationBinding? = null
     private val binding get() = _binding!!
-    private val args: MovieSelectedFragmentArgs by navArgs()
-    private val TAG = "MovieSelectedFragment"
+    private val TAG = "MovieSelectedReservationFragment"
 
     lateinit var viewModel: CinemaViewModel
 
@@ -32,7 +29,7 @@ class MovieSelectedFragment: Fragment(R.layout.fragment_movie_selected) {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentMovieSelectedBinding.inflate(inflater, container, false)
+        _binding = FragmentMovieSelectedReservationBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -46,14 +43,13 @@ class MovieSelectedFragment: Fragment(R.layout.fragment_movie_selected) {
     override fun onStart() {
         super.onStart()
         viewModel = (activity as CinemaActivity).viewModel
-        viewModel.movieTitle = args.title
         initializeUI()
     }
 
     private fun initializeUI() {
         var isFavorite = false
 
-        binding.movieSelectedTitle.text = args.title
+        binding.movieSelectedTitle.text = viewModel.movieTitle
 
         //-----Favorite button setImage-----
 

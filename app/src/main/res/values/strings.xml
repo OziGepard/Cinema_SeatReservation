@@ -1,12 +1,17 @@
 <resources>
     <string name="app_name">SeatReservation</string>
-    <string name="home">Home</string>
-    <string name="reserved">Reserved</string>
-    <string name="favorite">Favorite</string>
+    <string name="home">Strona startowa</string>
+    <string name="reserved">Rezerwacja</string>
+    <string name="favorite">Ulubione</string>
     <string name="name">Imię</string>
     <string name="lastname">Nazwisko</string>
     <string name="time_select">Podaj godzinę</string>
     <string name="email">E-mail</string>
     <string name="time">Godzina</string>
     <string name="reservation">Rezerwuj</string>
+    <string name="movie_duration">Czas seansu</string>
+    <string name="movie_rating">Ocena</string>
+    <string name="movie_price">Cena</string>
+    <string name="movie_description">Opis filmu</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean condimentum blandit nisi, in feugiat ex. Curabitur ornare lorem ac nibh tincidunt iaculis. Quisque tempus nibh et nibh ultrices vulputate. Vivamus imperdiet dapibus enim, vitae congue nulla scelerisque vel. Curabitur at eros justo. Praesent suscipit libero ut nulla vehicula sagittis. Donec quis elit lacinia neque bibendum rhoncus in non lorem. Vestibulum tincidunt eget risus vel malesuada.</string>
 </resources>

@@ -86,7 +86,7 @@ class SeatReservationFragment: Fragment(R.layout.fragment_seat_reservation) {
 
         viewModel.reservationsList.observe(viewLifecycleOwner){
 
-            Log.d(TAG, viewModel.reservationsList.value.toString())
+            Log.d(TAG, "Lista rezerwacji: $it")
 
             // Set every seat on GREEN (Reset)
             for(seat in listOfSeats)

@@ -9,20 +9,17 @@
         android:name="com.example.seatreservation.ui.fragments.MoviesListFragment"
         android:label="MoviesListFragment" >
         <action
-            android:id="@+id/action_moviesListFragment_to_movieSelectedFragment"
-            app:destination="@id/movieSelectedFragment"
+            android:id="@+id/action_moviesListFragment_to_movieSelectedInfoFragment"
+            app:destination="@id/movieSelectedInfoFragment"
             app:enterAnim="@anim/from_right_to_left"
             app:exitAnim="@anim/from_right_to_left_faster"
             app:popEnterAnim="@anim/from_left_to_right_pop"
-            app:popExitAnim="@anim/from_left_to_right_pop_faster"/>
+            app:popExitAnim="@anim/from_left_to_right_pop_faster" />
     </fragment>
     <fragment
-        android:id="@+id/movieSelectedFragment"
-        android:name="com.example.seatreservation.ui.fragments.MovieSelectedFragment"
-        android:label="MovieSelectedFragment" >
-        <argument
-            android:name="title"
-            app:argType="string" />
+        android:id="@+id/movieSelectedReservationFragment"
+        android:name="com.example.seatreservation.ui.fragments.MovieSelectedReservationFragment"
+        android:label="movieSelectedReservationFragment" >
     </fragment>
     <fragment
         android:id="@+id/reservedMovieDetailFragment"
@@ -40,4 +37,19 @@
         android:id="@+id/favoriteMoviesFragment"
         android:name="com.example.seatreservation.ui.fragments.FavoriteMoviesFragment"
         android:label="FavoriteMoviesFragment" />
+    <fragment
+        android:id="@+id/movieSelectedInfoFragment"
+        android:name="com.example.seatreservation.ui.fragments.MovieSelectedInfoFragment"
+        android:label="MovieSelectedInfoFragment" >
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_movieSelectedInfoFragment_to_movieSelectedReservationFragment"
+            app:destination="@id/movieSelectedReservationFragment"
+            app:enterAnim="@anim/from_right_to_left"
+            app:exitAnim="@anim/from_right_to_left_faster"
+            app:popEnterAnim="@anim/from_left_to_right_pop"
+            app:popExitAnim="@anim/from_left_to_right_pop_faster" />
+    </fragment>
 </navigation>
